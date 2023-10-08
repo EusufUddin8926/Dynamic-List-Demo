@@ -77,7 +77,7 @@ class DynamicListDemo extends StatelessWidget {
   ];
 
   MySnackBarMsg(context, msg) {
-   return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(msg),
     ));
   }
@@ -101,6 +101,11 @@ class DynamicListDemo extends StatelessWidget {
               margin: EdgeInsets.all(10),
               width: double.infinity,
               height: 200,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                border: Border.all(color: Colors.black, width: 2),
+                borderRadius: BorderRadius.all(Radius.circular(2)),
+              ),
               child: Image.network(
                 listItem[index]["img"]!,
                 fit: BoxFit.fill,
