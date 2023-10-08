@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
 }
 
 class DynamicListDemo extends StatelessWidget {
-
   var listItem = [
     {
       "img":
@@ -28,17 +27,17 @@ class DynamicListDemo extends StatelessWidget {
     {
       "img":
           "https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg",
-      "title": "Delete Icon"
+      "title": "Recycler Icon"
     },
     {
       "img":
           "https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg",
-      "title": "Delete Icon"
+      "title": "Garbase Icon"
     },
     {
       "img":
           "https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg",
-      "title": "Delete Icon"
+      "title": "Remove Icon"
     },
     {
       "img":
@@ -77,6 +76,14 @@ class DynamicListDemo extends StatelessWidget {
     }
   ];
 
+  MySnackBarMsg(context, msg) {
+   return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(msg),
+    ));
+  }
+
+  DynamicListDemo({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,7 +94,9 @@ class DynamicListDemo extends StatelessWidget {
         itemCount: listItem.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              MySnackBarMsg(context, listItem[index]["title"]);
+            },
             child: Container(
               margin: EdgeInsets.all(10),
               width: double.infinity,
